@@ -10,8 +10,10 @@ class LinearModel(tf.Module):
     def __call__(self, x):
         return self.w * x + self.b
 
+
 def loss(target_y, predicted_y):
     return tf.reduce_mean(tf.square(target_y - predicted_y))
+
 
 def train(model, x, y, learning_rate):
     with tf.GradientTape() as t:
@@ -19,6 +21,7 @@ def train(model, x, y, learning_rate):
         dw, db = t.gradient(current_loss, [model.w, model.b])
         model.w.assign_sub(learning_rate * dw)
         model.b.assign_sub(learning_rate * db)
+
 
 def training_loop(model, x, y):
     for epoch in range(10):
