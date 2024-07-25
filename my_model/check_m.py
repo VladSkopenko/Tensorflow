@@ -10,7 +10,7 @@ image_array = np.array(image)
 
 image_array = image_array / 255.0
 
-# Добавьте дополнительное измерение, чтобы оно соответствовало входу модели (batch_size, height, width, channels)
+
 image_array = np.expand_dims(image_array, axis=0)
 image_array = np.expand_dims(image_array, axis=-1)
 
